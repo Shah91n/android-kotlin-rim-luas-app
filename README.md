@@ -1,4 +1,4 @@
-# android-kotlin-rim-luas-app
+# Rim Luas App
 
 Simple app to fetch XML data from Luas API for 2 stops only
 
