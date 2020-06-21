@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="tram"
+            type="shahin.luasforecast.network.Tram" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/border">
+
+        <TextView
+            android:id="@+id/tvDue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/placeholder"
+            app:due="@{tram}"
+            tools:text="5 Mins"
+            android:layout_marginStart="50dp"
+            style="@style/CustomTramItem"/>
+
+        <TextView
+            android:id="@+id/tvDestination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"
+            android:text="@string/placeholder"
+            app:destination="@{tram}"
+            tools:text="Stillorgan Destination"
+            style="@style/CustomTramItem"/>
+    </RelativeLayout>
+</layout>

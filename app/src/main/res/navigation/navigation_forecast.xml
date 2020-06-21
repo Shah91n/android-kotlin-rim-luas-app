@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_forecast"
+    app:startDestination="@id/forecastFragment">
+
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="shahin.luasforecast.forecast.ForecastFragment"
+        android:label="@string/rim_luas">
+        <action
+            android:id="@+id/action_forecastFragment_to_tramFragment"
+            app:destination="@id/tramFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/slide_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/tramFragment"
+        android:name="shahin.luasforecast.tram.TramFragment"
+        android:label="@string/tram_details"
+        tools:layout="@layout/fragment_tram">
+        <action
+            android:id="@+id/action_tramFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+        <argument
+            android:name="selectedTram"
+            app:argType="shahin.luasforecast.network.Tram" />
+    </fragment>
+</navigation>

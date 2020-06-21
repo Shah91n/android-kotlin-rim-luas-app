@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">التـــرام</string>
+    <string name="placeholder">مؤقت</string>
+    <string name="refresh">"إعادة "</string>
+    <string name="rim_luas">ترام الشغل</string>
+    <string name="luas_stop">المحطة: %s</string>
+    <string name="luas_direction">الأتجاه: %s</string>
+    <string name="tram_details">معلومات الترام</string>
+</resources>

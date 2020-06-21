@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="android:colorBackground">@color/primaryBackgroundColor</item>
+        <item name="android:fontFamily">@font/lobster_two</item>
+        <item name="fontFamily">@font/lobster_two</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CustomTramItem">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/bad_script</item>
+        <item name="fontFamily">@font/bad_script</item>
+    </style>
+</resources>

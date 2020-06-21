@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Luas Forecast</string>
+    <string name="placeholder">"Marcador de posición "</string>
+    <string name="refresh">actualizar</string>
+    <string name="rim_luas">"Tranvía "</string>
+    <string name="luas_stop">Detener: %s</string>
+    <string name="luas_direction">Dirección: %s</string>
+    <string name="tram_details">Detalles del tranvía</string>
+</resources>
