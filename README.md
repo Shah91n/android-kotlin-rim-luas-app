@@ -1,6 +1,10 @@
 # Rim Luas App
 
-Simple app to fetch XML data from Luas API for 2 stops only
+Simple app to fetch XML data from Luas API for 2 stops only.
+
+# Requirements to run the appp
+
+You need latest Android Studio 3.6 or newer to successfully run the app.
 
 ## Developed by Mohamed Shahin
 
