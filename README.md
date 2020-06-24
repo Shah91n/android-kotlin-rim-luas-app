@@ -2,6 +2,8 @@
 
 Simple app to fetch XML data from Luas API for 2 stops only.
 
+![alt text](https://i.postimg.cc/gLsb429t/device-2020-06-24-131239.png)![alt text](https://i.postimg.cc/14QgW7hD/device-2020-06-24-131259.png)
+
 # Requirements to run the appp
 
 You need latest Android Studio 3.6 or newer to successfully run the app.
