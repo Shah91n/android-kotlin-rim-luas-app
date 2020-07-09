@@ -6,4 +6,8 @@
     <string name="luas_stop">Stop: %s</string>
     <string name="luas_direction">Direction: %s</string>
     <string name="tram_details">Tram Details</string>
+    <string name="coming_now">Coming now</string>
+    <string name="minutes">minute(s)</string>
+    <string name="destination_is">Destination is: </string>
+    <string name="to">to </string>
 </resources>

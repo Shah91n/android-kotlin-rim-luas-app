@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
+import shahin.luasforecast.R
 import shahin.luasforecast.network.Tram
 import shahin.luasforecast.utility.BRIDES_GLEN
 import shahin.luasforecast.utility.BROOMBRIDGE
@@ -17,8 +18,7 @@ import timber.log.Timber
  */
 class TramViewModel(tram: Tram, app: Application) : AndroidViewModel(app) {
 
-    //Variables Declaration
-    //For data
+    //Variables Declaration for data
     private val _selectedTram = MutableLiveData<Tram>()
     val selectedTram: LiveData<Tram>
         get() = _selectedTram
@@ -33,34 +33,34 @@ class TramViewModel(tram: Tram, app: Application) : AndroidViewModel(app) {
         getStopImageUrl()
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        Timber.i("StopDetailViewModel is destroyed")
-    }
-
     /**
      * Formatting the data coming from the argument passed
      */
     val formatDue: LiveData<String> = Transformations.map(selectedTram) {
         String.format(
             when (_selectedTram.value?.due) {
-                "DUE" -> "It's coming now"
-                else -> "In ${_selectedTram.value?.due} minutes"
+                "DUE" -> app.resources.getString(R.string.coming_now)
+                else -> "${_selectedTram.value?.due} ${app.resources.getString(R.string.minutes)}"
             }
         )
     }
 
     val formatStopDestination: LiveData<String> = Transformations.map(selectedTram) {
-        String.format("Destination is:  ${_selectedTram.value?.destination}")
+        String.format("${app.resources.getString(R.string.destination_is)} ${_selectedTram.value?.destination}")
     }
 
-    fun getStopImageUrl() {
-        val stop = _selectedTram.value?.destination
-        when (stop) {
+    private fun getStopImageUrl() {
+        when (_selectedTram.value?.destination) {
             "Broombridge" -> _stopPhoto.value = BROOMBRIDGE
             "Sandyford" -> _stopPhoto.value = SANDYFORD
             "Bride's Glen" -> _stopPhoto.value = BRIDES_GLEN
             "Parnell" -> _stopPhoto.value = PARNELL
         }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        Timber.i("StopDetailViewModel is destroyed")
+    }
+
 }

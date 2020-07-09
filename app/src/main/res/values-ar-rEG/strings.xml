@@ -7,4 +7,8 @@
     <string name="luas_stop">المحطة: %s</string>
     <string name="luas_direction">الأتجاه: %s</string>
     <string name="tram_details">معلومات الترام</string>
+    <string name="coming_now">قادم الأن</string>
+    <string name="minutes">دقائق</string>
+    <string name="destination_is">متجه الى</string>
+    <string name="to">إلى </string>
 </resources>

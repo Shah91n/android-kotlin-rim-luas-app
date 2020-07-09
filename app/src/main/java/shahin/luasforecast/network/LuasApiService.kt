@@ -1,10 +1,10 @@
 package shahin.luasforecast.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private const val BASE_URL = "https://luasforecasts.rpa.ie/"
 
@@ -21,11 +21,10 @@ private val retrofit = Retrofit.Builder()
  * Fetching data for only 2 stops
  */
 interface LuasApiService{
-    @GET("xml/get.ashx?action=forecast&stop=sti&encrypt=false")
-    fun getStillorganStopInfo(): Deferred<StopInfo>
-
-    @GET("xml/get.ashx?action=forecast&stop=mar&encrypt=false")
-    fun getMarlboroughStopInfo(): Deferred<StopInfo>
+    @GET("xml/get.ashx?action=forecast")
+    suspend fun getStopInfo(@Query("stop") stop: String,
+                            @Query("encrypt") encrypt: String)
+            : StopInfo
 }
 
 /**
@@ -36,20 +35,3 @@ object LuasApi{
         retrofit.create(LuasApiService::class.java)
     }
 }
-
-/**
- *
- *  -- Using suspend as I was not using Deferred value which is non blocking
-
-
-interface LuasApiService{
-@GET("xml/get.ashx?action=forecast&stop=sti&encrypt=false")
-suspend fun getStillorganStopInfo(): StopInfo
-
-@GET("xml/get.ashx?action=forecast&stop=mar&encrypt=false")
-suspend fun getMarlboroughStopInfo(): StopInfo
-}
-
-
- *
- */

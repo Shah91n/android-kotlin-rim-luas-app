@@ -16,24 +16,20 @@ import shahin.luasforecast.network.Tram
  */
 @BindingAdapter("due")
 fun TextView.setDueMins(item: Tram?) {
-    item.let {
-        if (item != null) {
-            text = String.format(
-                when (item.due) {
-                    "DUE" -> "It's coming now"
-                    else -> "In ${item.due} minutes"
-                }
-            )
-        }
+    item?.let {
+        text = String.format(
+            when (item.due) {
+                "DUE" -> resources.getString(R.string.coming_now)
+                else -> "${item.due} ${resources.getString(R.string.minutes)}"
+            }
+        )
     }
 }
 
 @BindingAdapter("destination")
 fun TextView.setDestination(item: Tram?) {
-    item.let {
-        if (item != null) {
-            text = String.format("to ${item.destination}")
-        }
+    item?.let {
+        text = String.format("${resources.getString(R.string.to)} ${item.destination}")
     }
 }
 
@@ -70,8 +66,10 @@ fun bindStatus(statusImageView: ImageView, status: LuasApiStatus?) {
  * For downloading and display Luas Stop image based on the constants below
  */
 
-const val BROOMBRIDGE = "https://live.staticflickr.com/4738/38958701972_62388a6d56_b.jpg"
-const val SANDYFORD = "hhttps://live.staticflickr.com/6006/5973421607_ab6a758528_b.jpg"
+const val BROOMBRIDGE = "" +
+        "https://live.staticflickr.com/4738/38958701972_62388a6d56_b.jpg"
+const val SANDYFORD =
+    "hhttps://live.staticflickr.com/6006/5973421607_ab6a758528_b.jpg"
 const val BRIDES_GLEN =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/The_New_Luas_Extension_-_Brides_Glen_Terminus_%285094539530%29.jpg/1599px-The_New_Luas_Extension_-_Brides_Glen_Terminus_%285094539530%29.jpg"
 const val PARNELL =

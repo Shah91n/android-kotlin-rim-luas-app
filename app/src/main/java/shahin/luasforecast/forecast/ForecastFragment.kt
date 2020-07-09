@@ -27,15 +27,14 @@ class ForecastFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        //TODO (As study) -> I need to know how to initialize the adapter without the click listener implementation
         binding.rvTrams.adapter = TramsAdapter(TramsAdapter.OnClickListener{
             viewModel.displayTramDetails(it)
         })
 
         //Navigate to the TramFragment
-        viewModel.navigateToSelectedTram.observe(viewLifecycleOwner, Observer {
-            if(it != null){
-                this.findNavController().navigate(ForecastFragmentDirections.actionForecastFragmentToTramFragment(it))
+        viewModel.navigateToSelectedTram.observe(viewLifecycleOwner, Observer {tram ->
+            tram?.let {
+                this.findNavController().navigate(ForecastFragmentDirections.actionForecastFragmentToTramFragment(tram))
                 viewModel.displayTramDetailsComplete()
             }
         })
